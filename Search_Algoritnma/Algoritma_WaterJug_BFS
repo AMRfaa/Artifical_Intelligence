@@ -1,0 +1,18 @@
+ALGORITMA WaterJug_BFS(Kapasitas1, Kapasitas2, Target)
+
+    1.  BUAT Antrean (QUEUE) bernama 'wadah'
+    2.  MASUKKAN (0, 0, [jalur_kosong]) ke dalam 'wadah'
+    3.  BUAT Set bernama 'dikunjungi' untuk mencatat state yang pernah lewat    
+    4.  SELAMA 'wadah' TIDAK KOSONG:
+            a. Ambil data (Ember1, Ember2, Jalur) dari DEPAN (popleft) 'wadah'
+            
+            b. JIKA (Ember1, Ember2) ADALAH Target:
+                   KEMBALIKAN Jalur + (Ember1, Ember2) [SOLUSI TERPENDEK KETEMU]
+            
+            c. JIKA (Ember1, Ember2) BELUM ADA di 'dikunjungi':
+                   i.  Tambahkan (Ember1, Ember2) ke 'dikunjungi'
+                   ii. UNTUK SETIAP AKSI (Isi, Buang, Tuang):
+                           Hasil = Jalankan_Aksi(Ember1, Ember2)
+                           MASUKKAN (Hasil.Ember1, Hasil.Ember2, Jalur + Sekarang) ke BELAKANG 'wadah'
+    
+    5.  KEMBALIKAN "Tidak ada solusi"
