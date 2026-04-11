@@ -1,0 +1,18 @@
+ALGORITMA WaterJug_DFS(Kapasitas1, Kapasitas2, Target):
+
+    1.  BUAT Tumpukan (STACK) bernama 'wadah'
+    2.  MASUKKAN (0, 0, [jalur_kosong]) ke dalam 'wadah'
+    3.  BUAT Set bernama 'dikunjungi' untuk mencatat state agar tidak loop    
+    4.  SELAMA 'wadah' TIDAK KOSONG:
+            a. Ambil data (Ember1, Ember2, Jalur) dari BELAKANG (pop) 'wadah'
+            
+            b. JIKA (Ember1, Ember2) ADALAH Target:
+                   KEMBALIKAN Jalur + (Ember1, Ember2) [SOLUSI KETEMU]
+            
+            c. JIKA (Ember1, Ember2) BELUM ADA di 'dikunjungi':
+                   i.  Tambahkan (Ember1, Ember2) ke 'dikunjungi'
+                   ii. UNTUK SETIAP AKSI (Isi, Buang, Tuang):
+                           Hasil = Jalankan_Aksi(Ember1, Ember2)
+                           MASUKKAN (Hasil.Ember1, Hasil.Ember2, Jalur + Sekarang) ke BELAKANG 'wadah'
+    
+    5.  KEMBALIKAN "Tidak ada solusi"
